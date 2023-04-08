@@ -11,6 +11,7 @@ body {
     flex-direction: column;
     font-family: "Ubuntu", "Open Sans", "Arial";
     color: #FFF;
+    overflow-x: hidden;
 }
 
 @keyframes gradient {
@@ -39,6 +40,7 @@ footer{
     bottom: 0px;
     left: 0px;
     background: #f1cd23;
+    border-top: 4px solid #e4a40c;
     width: 100%;
     height: 50px;
     display: flex;
@@ -66,8 +68,7 @@ footer img{
 }
 
 .logo{
-    width: calc(100% + 40px);
-    margin-left: -20px;
+    width: 100%;
 }
 
 .content{
