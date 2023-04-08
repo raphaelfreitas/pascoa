@@ -1,4 +1,80 @@
-body{
-    background: rgb(184,106,40);
-    background: radial-gradient(circle, rgba(184,106,40,1) 0%, rgba(119,64,45,1) 100%);
+body {
+	background: linear-gradient(-45deg, #583822, #865c3f, #583822, #8e542c);
+	background-size: 800vw 300vh;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: "Ubuntu", "Open Sans", "Arial";
+    color: #FFF;
 }
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 85% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+header{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: #f1cd23;
+    width: 100%;
+    height: 10px;
+}
+
+footer{
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    background: #f1cd23;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer a{
+    text-decoration: none;
+    display: flex;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+footer a.active{
+    background: rgba(255, 255, 255, .3)
+}
+
+footer img{
+    height: 27px;
+}
+
+.logo{
+    width: calc(100% + 40px);
+    margin-left: -20px;
+}
+
+.content{
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
