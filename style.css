@@ -1,3 +1,8 @@
+html{
+    height: 100vh;
+    overflow: hidden;
+}
+
 body {
 	background: linear-gradient(-45deg, #583822, #865c3f, #583822, #8e542c);
 	background-size: 800vw 300vh;
@@ -12,6 +17,7 @@ body {
     font-family: "Ubuntu", "Open Sans", "Arial";
     color: #FFF;
     overflow-x: hidden;
+    overflow-y: auto;
 }
 
 @keyframes gradient {
@@ -92,18 +98,22 @@ footer a.camera img{
 }
 
 
-
 .logo{
     width: calc(100% - 40px);
 }
 
-.content{
+main.content{
     width: 500px;
     max-width: calc(100% - 40px);
     margin: 0 auto;
     padding: 0 20px;
     text-align: center;
     margin-top: -60px;
+    display: none;
+}
+
+main.content.active{
+    display: block;
 }
 
 .text{
@@ -131,6 +141,23 @@ footer a.camera img{
 .egg.disabled{
     opacity: 0.3;
     filter: grayscale(1) brightness(0.3);
+}
+
+
+main.content#eggs #reader{
+    display: block;
+}
+
+main.content#eggs.novo #reader{
+    display: none;
+}
+
+main.content#eggs .img_novo_ovo{
+    display: none;
+}
+
+main.content#eggs.novo .img_novo_ovo{
+    display: block;
 }
 
 .novo_ovo{

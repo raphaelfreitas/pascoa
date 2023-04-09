@@ -14,26 +14,42 @@
 
   <body>
     <header></header>
-    <main class="content">
+    
+    <main id="home" class="content active">
       <h1>Bem Vindo</h1>
       <img src="img/logo.png" class="logo" />
-      <p class="text">Clique na camera e encontre todos os ovos para revelar sua primeira dica!</p>
+      <p class="text">Clique na camera e encontre todos os ovos para revelar sua dica!</p>
     </main>
+
+    <main id="qr" class="content">
+        <h1></h1>
+        <div id="reader" width="100%"></div>
+        <div class="img_novo_ovo"></div>
+    </main>
+
+    <main id="eggs" class="content">
+      <h1>Ovos encontrados</h1>
+      <div class="eggs"></div>
+      <div class="ovos_encontrados text">0/0</div>
+    </main>
+
+
     <footer>
-      <a href="javascript:void(0)" class="active">
+      <a href="javascript:void(0)" class="active" data-menu="home">
         <img src="img/home.png" />
       </a>
 
-      <a href="qr.html" class="camera">
+      <a href="javascript:void(0)" class="camera" data-menu="qr">
         <img src="img/camera.png" />
       </a>
 
-      <a href="eggs.html">
+      <a href="javascript:void(0)" data-menu="eggs">
         <img src="img/eggs.png" />
       </a>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script type="text/javaScript" src="html5-qrcode.min.js"></script>
     <script type="text/javaScript" src="script.js"></script>
 
   </body>
