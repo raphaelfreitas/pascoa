@@ -81,6 +81,15 @@
 
             window.localStorage.setItem('eggs', JSON.stringify(foundEggs));
 
+            setTimeout(() => {
+              window.location = 'eggs.html';
+            }, 3000);
+
+          } else {
+            $('main.content h1').text('Você já achou este ovo antes!');
+            setTimeout(() => {
+              $('main.content h1').text('');
+            }, 2000);
           }
         }
 
@@ -88,6 +97,10 @@
 
       if(decodedText.includes('egg--reset')){
         window.localStorage.setItem('eggs', []);
+        $('main.content h1').text('Ovos apagados!');
+        setTimeout(() => {
+          $('main.content h1').text('');
+        }, 2000);
       }
 
       // handle the scanned code as you like, for example:
