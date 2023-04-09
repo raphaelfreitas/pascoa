@@ -77,6 +77,8 @@
 
               foundEggs.push(number);
 
+              $('main.content').addClass('novo');
+
               $('main.content').html(`
                 <h1>Novo Ovo encontrado!</h1>
                 <img src="img/ovos/${number}.png" class="novo_ovo" />
@@ -88,7 +90,7 @@
                 window.location = 'eggs.html';
               }, 3000);
 
-            } else {
+            } else if(!$('main.content').hasClass('novo')) {
               $('main.content h1').text('Você já achou este ovo antes!');
               setTimeout(() => {
                 $('main.content h1').text('');
