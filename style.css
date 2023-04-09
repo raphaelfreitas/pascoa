@@ -141,19 +141,19 @@ main.content.active{
 }
 
 
-main.content#eggs #reader{
+main.content#qr #reader{
     display: block;
 }
 
-main.content#eggs.novo #reader{
+main.content#qr.novo #reader{
     display: none;
 }
 
-main.content#eggs .img_novo_ovo{
+main.content#qr .img_novo_ovo{
     display: none;
 }
 
-main.content#eggs.novo .img_novo_ovo{
+main.content#qr.novo .img_novo_ovo{
     display: block;
 }
 
