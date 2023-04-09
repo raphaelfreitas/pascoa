@@ -19,6 +19,14 @@
     
   });
 
+  updateEggsBasket();
+
+  $(document).on('click', 'main#home .botoes a', function(){
+    let dica = $(this).data('dica');
+    window.localStorage.setItem('dica', dica);
+    updateEggsBasket();
+  })
+
   /* Eggs */
 
 
@@ -54,6 +62,23 @@
         eggs.find(`.egg[key="${v}"]`).removeClass('disabled');
         numFound++;
       });
+
+      if(numFound == 12){
+
+        const dica = window.localStorage.getItem('dica');
+
+        if(dica){
+          for(let d=1; d<=4; d++){
+            if(dica != d){
+              $('main#home').find(`.botoes a[data-dica="${d}"]`).addClass('disabled');
+            }
+          }
+        }
+
+        $('main#home').addClass('com_dicas');
+
+
+      }
 
       $(document).find('.ovos_encontrados').text(`${numFound}/12`);
 
@@ -132,6 +157,14 @@
         if(decodedText.includes('egg--reset')){
           window.localStorage.setItem('eggs', []);
           $('main#qr h1').text('Ovos apagados!');
+          setTimeout(() => {
+            $('main#qr h1').text('');
+          }, 2000);
+        }
+
+        if(decodedText.includes('egg--resetDica')){
+          window.localStorage.setItem('dica', '');
+          $('main#qr h1').text('Dica apagadas!');
           setTimeout(() => {
             $('main#qr h1').text('');
           }, 2000);

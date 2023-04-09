@@ -140,6 +140,38 @@ main.content.active{
     filter: grayscale(1) brightness(0.3);
 }
 
+main.content#home .dicas{
+    display:none;
+}
+
+main.content#home.com_dicas .dicas{
+    display: block;
+}
+
+main.content#home.com_dicas .intro{
+    display: none;
+}
+
+main.content#home.com_dicas .dicas .botoes{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+main.content#home.com_dicas .dicas .botoes a{
+    padding: 10px 20px;
+    background: #f1cd23;
+    border: 1px solid #e4a40c;
+    border-radius: 5px;
+    color: #000; 
+    text-decoration: none;
+}
+
+main.content#home.com_dicas .dicas .botoes a.disabled{
+    opacity: 0.3;
+    pointer-events: none;
+}
+
 
 main.content#qr #reader{
     display: block;
