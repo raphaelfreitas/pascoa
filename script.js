@@ -135,10 +135,10 @@
             $('main.content#eggs h1').text('');
           }, 2000);
         }
-
-        // handle the scanned code as you like, for example:
-        console.log(`Code matched = ${decodedText}`, decodedResult);
       }
+
+      // handle the scanned code as you like, for example:
+      console.log(`Code matched = ${decodedText}`, decodedResult);
     }
     
     function onScanFailure(error) {
@@ -153,6 +153,12 @@
       /* verbose= */ false);
     html5QrcodeScanner.render(onScanSuccess, onScanFailure);
   }
+
+  function closeIt()
+  {
+    html5QrcodeScanner = false;
+  }
+  window.onbeforeunload = closeIt;
 
   
 })();
