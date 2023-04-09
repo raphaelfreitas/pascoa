@@ -1,6 +1,8 @@
 (() => {
   $ = jQuery;
 
+  let html5QrcodeScanner = false;
+
   /* Menu */
 
   $(document).on('click', 'footer a', function(){
@@ -66,7 +68,7 @@
   
     function onScanSuccess(decodedText, decodedResult) {
 
-      if($('main.content#eggs').hasClass('active')){
+      if($('main#eggs').hasClass('active')){
 
         if(decodedText.includes('egg---')){
 
@@ -96,32 +98,32 @@
 
                 foundEggs.push(number);
 
-                $('main.content#eggs').addClass('novo');
+                $('main#eggs').addClass('novo');
 
-                $('main.content#eggs .img_novo_ovo').html(`
+                $('main#eggs .img_novo_ovo').html(`
                   <h1>Novo Ovo encontrado!</h1>
                   <img src="img/ovos/${number}.png" class="novo_ovo" />
                 `);
 
-                $('main.content#eggs h1').text('Novo Ovo encontrado!');
+                $('main#eggs h1').text('Novo Ovo encontrado!');
 
                 window.localStorage.setItem('eggs', JSON.stringify(foundEggs));
 
                 setTimeout(() => {
                   $(document).find('a[data-menu="eggs"]').trigger('click');
-                  $('main.content#eggs').removeClass('novo');
+                  $('main#eggs').removeClass('novo');
                 }, 3000);
 
-              } else if(!$('main.content#eggs').hasClass('novo')) {
-                $('main.content#eggs h1').text('Você já achou este ovo antes!');
+              } else if(!$('main#eggs').hasClass('novo')) {
+                $('main#eggs h1').text('Você já achou este ovo antes!');
                 setTimeout(() => {
-                  $('main.content#eggs h1').text('');
+                  $('main#eggs h1').text('');
                 }, 2000);
               }
             } else {
-              $('main.content#eggs h1').text('QR Code Inválido!');
+              $('main#eggs h1').text('QR Code Inválido!');
                 setTimeout(() => {
-                  $('main.content#eggs h1').text('');
+                  $('main#eggs h1').text('');
                 }, 2000);
             }
           }
@@ -130,9 +132,9 @@
 
         if(decodedText.includes('egg--reset')){
           window.localStorage.setItem('eggs', []);
-          $('main.content#eggs h1').text('Ovos apagados!');
+          $('main#eggs h1').text('Ovos apagados!');
           setTimeout(() => {
-            $('main.content#eggs h1').text('');
+            $('main#eggs h1').text('');
           }, 2000);
         }
       }
@@ -144,12 +146,14 @@
     function onScanFailure(error) {
       // handle scan failure, usually better to ignore and keep scanning.
       // for example:
-      console.warn(`Code scan error = ${error}`);
+      if($('main#eggs').hasClass('active')){
+        console.warn(`Code scan error = ${error}`);
+      }
     }
     
-    let html5QrcodeScanner = new Html5QrcodeScanner(
+    html5QrcodeScanner = new Html5QrcodeScanner(
       "reader",
-      { fps: 10, qrbox: {width: 250, height: 250} },
+      { fps: 5, qrbox: {width: 250, height: 250} },
       /* verbose= */ false);
     html5QrcodeScanner.render(onScanSuccess, onScanFailure);
   }
