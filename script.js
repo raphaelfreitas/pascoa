@@ -24,7 +24,7 @@
         foundEggs = [];
       }
 
-      if(!foundEggs.isArray){
+      if(!Array.isArray(foundEggs)){
         foundEggs = [];
       }
 
@@ -61,7 +61,7 @@
           foundEggs = [];
         }
 
-        if(!foundEggs.isArray){
+        if(!Array.isArray(foundEggs)){
           foundEggs = [];
         }
 
