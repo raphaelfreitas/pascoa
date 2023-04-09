@@ -68,7 +68,7 @@
   
     function onScanSuccess(decodedText, decodedResult) {
 
-      if($('main#eggs').hasClass('active')){
+      if($('main#qr').hasClass('active')){
 
         if(decodedText.includes('egg---')){
 
@@ -98,32 +98,32 @@
 
                 foundEggs.push(number);
 
-                $('main#eggs').addClass('novo');
+                $('main#qr').addClass('novo');
 
-                $('main#eggs .img_novo_ovo').html(`
+                $('main#qr .img_novo_ovo').html(`
                   <h1>Novo Ovo encontrado!</h1>
                   <img src="img/ovos/${number}.png" class="novo_ovo" />
                 `);
 
-                $('main#eggs h1').text('Novo Ovo encontrado!');
+                $('main#qr h1').text('Novo Ovo encontrado!');
 
                 window.localStorage.setItem('eggs', JSON.stringify(foundEggs));
 
                 setTimeout(() => {
                   $(document).find('a[data-menu="eggs"]').trigger('click');
-                  $('main#eggs').removeClass('novo');
+                  $('main#qr').removeClass('novo');
                 }, 3000);
 
-              } else if(!$('main#eggs').hasClass('novo')) {
-                $('main#eggs h1').text('Você já achou este ovo antes!');
+              } else if(!$('main#qr').hasClass('novo')) {
+                $('main#qr h1').text('Você já achou este ovo antes!');
                 setTimeout(() => {
-                  $('main#eggs h1').text('');
+                  $('main#qr h1').text('');
                 }, 2000);
               }
             } else {
-              $('main#eggs h1').text('QR Code Inválido!');
+              $('main#qr h1').text('QR Code Inválido!');
                 setTimeout(() => {
-                  $('main#eggs h1').text('');
+                  $('main#qr h1').text('');
                 }, 2000);
             }
           }
@@ -132,9 +132,9 @@
 
         if(decodedText.includes('egg--reset')){
           window.localStorage.setItem('eggs', []);
-          $('main#eggs h1').text('Ovos apagados!');
+          $('main#qr h1').text('Ovos apagados!');
           setTimeout(() => {
-            $('main#eggs h1').text('');
+            $('main#qr h1').text('');
           }, 2000);
         }
       }
@@ -146,7 +146,7 @@
     function onScanFailure(error) {
       // handle scan failure, usually better to ignore and keep scanning.
       // for example:
-      if($('main#eggs').hasClass('active')){
+      if($('main#qr').hasClass('active')){
         console.warn(`Code scan error = ${error}`);
       }
     }
