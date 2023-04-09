@@ -72,6 +72,8 @@
 
           if(!foundEggs.includes(number)){
 
+            html5QrcodeScanner = false;
+
             foundEggs.push(number);
 
             $('main.content').html(`
