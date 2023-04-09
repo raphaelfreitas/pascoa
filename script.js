@@ -101,7 +101,6 @@
                 $('main#qr').addClass('novo');
 
                 $('main#qr .img_novo_ovo').html(`
-                  <h1>Novo Ovo encontrado!</h1>
                   <img src="img/ovos/${number}.png" class="novo_ovo" />
                 `);
 
