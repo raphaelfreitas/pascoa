@@ -115,7 +115,7 @@
               } else if(!$('main.content#eggs').hasClass('novo')) {
                 $('main.content#eggs h1').text('Você já achou este ovo antes!');
                 setTimeout(() => {
-                  $('main.content h1').text('');
+                  $('main.content#eggs h1').text('');
                 }, 2000);
               }
             } else {
