@@ -154,7 +154,7 @@
 
         }
 
-        if(decodedText.includes('egg--reset')){
+        if(decodedText == 'egg--reset'){
           window.localStorage.setItem('eggs', []);
           $('main#qr h1').text('Ovos apagados!');
           setTimeout(() => {
