@@ -70,28 +70,35 @@
         if(typeof (eggNumber[1]) !== 'undefined'){
           const number = parseInt(eggNumber[1]);
 
-          if(!foundEggs.includes(number)){
+          if(number > 0 && number <=12){
+            if(!foundEggs.includes(number)){
 
-            html5QrcodeScanner = false;
+              html5QrcodeScanner = false;
 
-            foundEggs.push(number);
+              foundEggs.push(number);
 
-            $('main.content').html(`
-              <h1>Novo Ovo encontrado!</h1>
-              <img src="img/ovos/${number}.png" class="novo_ovo" />
-            `);
+              $('main.content').html(`
+                <h1>Novo Ovo encontrado!</h1>
+                <img src="img/ovos/${number}.png" class="novo_ovo" />
+              `);
 
-            window.localStorage.setItem('eggs', JSON.stringify(foundEggs));
+              window.localStorage.setItem('eggs', JSON.stringify(foundEggs));
 
-            setTimeout(() => {
-              window.location = 'eggs.html';
-            }, 3000);
+              setTimeout(() => {
+                window.location = 'eggs.html';
+              }, 3000);
 
+            } else {
+              $('main.content h1').text('Você já achou este ovo antes!');
+              setTimeout(() => {
+                $('main.content h1').text('');
+              }, 2000);
+            }
           } else {
-            $('main.content h1').text('Você já achou este ovo antes!');
-            setTimeout(() => {
-              $('main.content h1').text('');
-            }, 2000);
+            $('main.content h1').text('QR Code Inválido!');
+              setTimeout(() => {
+                $('main.content h1').text('');
+              }, 2000);
           }
         }
 
