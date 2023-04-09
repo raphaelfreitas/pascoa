@@ -24,6 +24,10 @@
         foundEggs = [];
       }
 
+      if(!foundEggs.isArray){
+        foundEggs = [];
+      }
+
       let numFound = 0;
 
       $.each(foundEggs, function(k, v){
@@ -57,6 +61,10 @@
           foundEggs = [];
         }
 
+        if(!foundEggs.isArray){
+          foundEggs = [];
+        }
+
         const eggNumber = decodedText.split('egg---');
 
         if(typeof (eggNumber[1]) !== 'undefined'){
@@ -71,7 +79,7 @@
               <img src="img/ovos/${number}.png" class="novo_ovo" />
             `);
 
-            window.localStorage.setItem('eggs', foundEggs);
+            window.localStorage.setItem('eggs', JSON.parse(foundEggs));
 
           }
         }
