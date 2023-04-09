@@ -79,7 +79,7 @@
               <img src="img/ovos/${number}.png" class="novo_ovo" />
             `);
 
-            window.localStorage.setItem('eggs', JSON.parse(foundEggs));
+            window.localStorage.setItem('eggs', JSON.stringify(foundEggs));
 
           }
         }
