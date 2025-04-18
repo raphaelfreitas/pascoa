@@ -26,13 +26,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Pages
+      - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
 
-      - name: Upload site files
+      - name: Upload static files
         uses: actions/upload-pages-artifact@v2
         with:
-          path: './' # or 'dist/' if you're using a build tool
+          path: './' # change to 'dist/' or 'build/' if needed
 
       - name: Deploy to GitHub Pages
         id: deploy
