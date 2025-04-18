@@ -11,8 +11,9 @@ jobs:
       - name: Checkout main branch
         uses: actions/checkout@v4
 
-      - name: Deploy to GitHub Pages
+      - name: Set up GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .  # Replace with your output folder
+          publish_dir: . # Replace 'your-output-folder' with the actual directory containing the build output
+          publish_branch: gh-pages
